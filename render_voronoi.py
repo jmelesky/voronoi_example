@@ -20,11 +20,19 @@ def dandddistance(x1, y1, x2, y2):
     maxdist = max(abs(x1 - x2), abs(y1 - y2))
     return ((maxdist - mindist) + (1.5 * mindist))
 
+def otherdistance(x1, y1, x2, y2):
+    mindist = min(abs(x1 - x2), abs(y1 - y2))
+    maxdist = max(abs(x1 - x2), abs(y1 - y2))
+    return ((maxdist - mindist) + (1.4 * mindist))
+
+
 def distance(x1, y1, x2, y2):
-    return civdistance(x1, y1, x2, y2) 
+    #return civdistance(x1, y1, x2, y2) 
     #return taxidistance(x1, y1, x2, y2) 
     #return dandddistance(x1, y1, x2, y2)
     #return eucliddistance(x1, y1, x2, y2)
+    return otherdistance(x1, y1, x2, y2)
+
 
 def closest(x, y, candidates):
     nearest = sorted(candidates, key=lambda c: distance(x,y,c[0],c[1]))
